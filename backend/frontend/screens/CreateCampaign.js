@@ -44,7 +44,7 @@ import {BasicButton} from '@phomea/react-native-buttons';
             <TextInput onChangeText={(val) => setUploadDoc(val)} style={styles.textinput} secureTextEntry={true} placeholder="Upload Url Image" placeholderTextColor="#fff" />
 
             <TouchableOpacity style={styles.button}>
-                <BasicButton onPress={() => {handleSubmitCreateCampaign()}} style={styles.btntext} title="Create"/>
+                <BasicButton onPress={() => {handleSubmitCreateCampaign(), navigation.navigate('MyCampaigns')}}  title="Create"/>
             </TouchableOpacity>
 
             {redirect ? navigation.navigate('MyCampaigns') : null }
@@ -80,7 +80,6 @@ const styles = StyleSheet.create({
         alignSelf: 'stretch',
         alignItems: 'center',
         padding: 20,
-        backgroundColor: '#59cbbd',
         marginTop: 10,
     },
     btntext: {
