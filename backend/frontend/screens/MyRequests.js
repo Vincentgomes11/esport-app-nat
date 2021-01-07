@@ -2,14 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView,  } from 'react-native';
 import { Button, Card} from 'react-native-elements'
 import { connect } from 'react-redux';
+import { Divider, Menu, Provider } from 'react-native-paper';
+
 import MyRequestList from '../screens/MyRequestList'
 
-function MyRequests({ takeToken }) {
+function MyRequests({ takeToken, navigation }) {
 
     const [returnCampaignDetailList, setReturnCampaignDetailList] = useState([])
     const [returnBrand, setReturnBrand] = useState([])
  
-
+    const [visible, setVisible] = React.useState(false);
+    const openMenu = () => setVisible(true);
+    const closeMenu = () => setVisible(false);
+  
 
     useEffect(() => {
         async function fetchData() {
@@ -82,6 +87,8 @@ function MyRequests({ takeToken }) {
 const styles = StyleSheet.create({
     regform: {
         alignSelf: 'stretch',
+        backgroundColor: '#9C27B0',
+        height: '95%',
     },
     header: {
         fontSize: 24,

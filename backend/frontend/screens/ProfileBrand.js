@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView } from 'react-native';
-import {Button} from 'react-native-elements'
+import {Button , Card} from 'react-native-elements'
 import {connect} from 'react-redux';
+import { Divider, Menu, Provider } from 'react-native-paper';
 
-function ProfileBrand({ takeToken }) {
+
+function ProfileBrand({ takeToken, navigation }) {
     
     const [companyDetails, setCompanyDetails] = useState([])
+    const [visible, setVisible] = React.useState(false);
+    const openMenu = () => setVisible(true);
+    const closeMenu = () => setVisible(false);
   
     useEffect(() => {
         async function fetchData() {
-          const response = await fetch(`http://192.168.0.19:3000/branddetails?brandToken=${props.token}`)
+          const response = await fetch(`http://192.168.0.19:3000/branddetails?brandToken=${takeToken}`)
           const jsonResponse = await response.json()
     
           setCompanyDetails(jsonResponse.brandProfil)
@@ -52,8 +57,47 @@ function ProfileBrand({ takeToken }) {
             )
         }
 
+        const styles = StyleSheet.create({
+          regform: {
+              alignSelf: 'stretch',
+              backgroundColor: '#9C27B0',
+              height: '95%',
+          },
+          header: {
+              fontSize: 24,
+              color: '#fff',
+              paddingBottom: 10,
+              marginBottom: 40,
+              borderBottomColor: '#199187',
+              borderBottomWidth: 1,
+              textAlign: "center",
+              marginTop: 50, 
+          },
+          textinput: {
+              alignSelf: 'stretch',
+              height: 40,
+              marginBottom: 30,
+              color: '#fff',
+              borderBottomColor: '#f8f8f8',
+              borderBottomWidth: 1,
+              marginLeft:10
+      
+          },
+          button: {
+              alignSelf: 'stretch',
+              alignItems: 'center',
+              padding: 20,
+              backgroundColor: '#59cbbd',
+              marginTop: 30,
+          },
+          btntext: {
+              color: '#fff',
+              fontWeight: 'bold'
+          }
+      });
+
         function mapStateToProps(state) {
-            return { token: state.token }
+            return { takeToken: state.token }
           }
           
           export default connect(

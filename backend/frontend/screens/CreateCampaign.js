@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView } from 'react-native';
 import {Button} from 'react-native-elements'
 import {connect} from 'react-redux';
+import {BasicButton} from '@phomea/react-native-buttons';
 
 
  function CreateCampaign({navigation, takeToken}) {
@@ -43,7 +44,7 @@ import {connect} from 'react-redux';
             <TextInput onChangeText={(val) => setUploadDoc(val)} style={styles.textinput} secureTextEntry={true} placeholder="Upload Url Image" placeholderTextColor="#fff" />
 
             <TouchableOpacity style={styles.button}>
-                <Button onPress={() => {handleSubmitCreateCampaign()}} style={styles.btntext} title="Create"/>
+                <BasicButton onPress={() => {handleSubmitCreateCampaign()}} style={styles.btntext} title="Create"/>
             </TouchableOpacity>
 
             {redirect ? navigation.navigate('MyCampaigns') : null }
@@ -57,7 +58,8 @@ import {connect} from 'react-redux';
 const styles = StyleSheet.create({
     regform: {
         alignSelf: 'stretch',
-    },
+        backgroundColor: '#9C27B0',
+        height: '95%',    },
     header: {
         fontSize: 24,
         color: '#fff',

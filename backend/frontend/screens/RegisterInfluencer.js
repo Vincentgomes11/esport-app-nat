@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, KeyboardAvoidingView, ScrollView, AsyncStorage} from 'react-native';
-import {Button} from 'react-native-elements';
+import {BasicButton} from '@phomea/react-native-buttons';
 
 import {connect} from 'react-redux';
 
@@ -84,7 +84,7 @@ function RegisterInfluencer({onSubmitToken, navigation}) {
             {/* <TextInput onChangeText={(val) => setSignUpFavoriteGamesInfluencer(val)} style={styles.textinput} placeholder="Favorite game" placeholderTextColor="#fff" /> */}
 
             <TouchableOpacity style={styles.button}>
-                <Button onPress={() => {handleSubmitSignupInfluencer()}} style={styles.btntext} title="Sign up"/>
+                <BasicButton onPress={() => {handleSubmitSignupInfluencer()}} style={styles.btntext} title="Sign up"/>
             </TouchableOpacity>
             </ScrollView>
             </KeyboardAvoidingView>
@@ -96,7 +96,7 @@ function RegisterInfluencer({onSubmitToken, navigation}) {
 const styles = StyleSheet.create({
     regform: {
         alignSelf: 'stretch',
-        backgroundColor: '#59cbbd',
+        backgroundColor: '#9C27B0',
         height: '95%',
     },
     header: {

@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity, KeyboardAvoidingVi
 import {Card, ListItem, Button, Icon} from 'react-native-elements'
 import {connect} from 'react-redux';
 import { withNavigation } from 'react-navigation';
+import {BasicButton} from '@phomea/react-native-buttons';
 
 function CampaignListComponent(props) {
 
@@ -14,7 +15,7 @@ function CampaignListComponent(props) {
     <Text style={{marginBottom: 10}}>
     {props.campaignDesc}
     </Text>
-    <Button
+    <BasicButton
       icon={<Icon name='code' color='#ffffff' />}
 
       onPress={() => props.navigation.navigate('CampaignDetail', {

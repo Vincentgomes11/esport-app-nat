@@ -39,7 +39,8 @@ fetchData()
 const styles = StyleSheet.create({
     regform: {
         alignSelf: 'stretch',
-    },
+        backgroundColor: '#9C27B0',
+        height: '95%',    },
     header: {
         fontSize: 24,
         color: '#fff',

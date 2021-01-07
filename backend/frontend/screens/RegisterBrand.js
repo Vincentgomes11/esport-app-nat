@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, KeyboardAvoidingView, ScrollView, AsyncStorage} from 'react-native';
 import {Button} from 'react-native-elements'
 import {connect} from 'react-redux';
+import {BasicButton} from '@phomea/react-native-buttons';
 
 
  function RegisterBrand({onSubmitToken, navigation}) {
@@ -77,7 +78,7 @@ import {connect} from 'react-redux';
             <TextInput onChangeText={(val) => setSignUpPhone(val)} style={styles.textinput} placeholder="Phone" placeholderTextColor="#fff" />
 
             <TouchableOpacity style={styles.button}>
-                <Button onPress={() => {handleSubmitSignupBrand()}} style={styles.btntext} title="Sign up"/>
+                <BasicButton onPress={() => {handleSubmitSignupBrand()}} style={styles.btntext} title="Sign up"/>
             </TouchableOpacity>
 
             {redirect ? navigation.navigate('CreateCampaign') : null}
@@ -92,7 +93,7 @@ import {connect} from 'react-redux';
 const styles = StyleSheet.create({
     regform: {
         alignSelf: 'stretch',
-        backgroundColor: '#59cbbd',
+        backgroundColor: '#9C27B0',
         height: '95%',
     },
     header: {

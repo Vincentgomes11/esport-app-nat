@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, KeyboardAvoidingView} from 'react-native';
-import {Button} from 'react-native-elements'
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, KeyboardAvoidingView, Button} from 'react-native';
 import {connect} from 'react-redux';
 import { withNavigation } from 'react-navigation';
+import {BasicButton} from '@phomea/react-native-buttons';
 
 
 function SignIn(props) {
@@ -54,16 +54,16 @@ function SignIn(props) {
 
         <View style={styles.regform}>
 
-            <Text style={styles.header}>Sign-in with you account</Text>
+            <Text style={styles.header}>Sign-in with your account</Text>
 
             <KeyboardAvoidingView behavior="padding" enabled keyboardVerticalOffset={150}>
 
             <TextInput onChangeText={(val) => setSignInEmail(val)} style={styles.textinput} placeholder="Email" placeholderTextColor="#fff"/>
 
-            <TextInput onChangeText={(val) => setSignInPassword(val)} style={styles.textinput} placeholder="Password" placeholderTextColor="#fff"/>
+            <TextInput onChangeText={(val) => setSignInPassword(val)} style={styles.textinput} secureTextEntry={true} placeholder="Password" placeholderTextColor="#fff"/>
            
             <TouchableOpacity style={styles.button}>
-                <Button onPress={() => {handleSubmitSignIn()}} secureTextEntry={true} style={styles.btntext} title="Sign In"/>
+                <BasicButton onPress={() => {handleSubmitSignIn()}}   title="Sign In"/>
             </TouchableOpacity>
             
             {/* {redirect ? navigation.navigate('SignIn') : null } */}
@@ -77,7 +77,7 @@ function SignIn(props) {
 const styles = StyleSheet.create({
     regform: {
         alignSelf: 'stretch',
-        backgroundColor: '#59cbbd',
+        backgroundColor: '#9C27B0',
         height: '95%', 
 
     },
@@ -98,23 +98,13 @@ const styles = StyleSheet.create({
         alignSelf: 'stretch',
         height: 40,
         marginBottom: 30,
-        color: '#fff',
+        color: '#999999',
         borderBottomColor: '#f8f8f8',
         borderBottomWidth: 1,
         marginLeft:10
 
     },
-    button: {
-        alignSelf: 'stretch',
-        alignItems: 'center',
-        padding: 20,
-        backgroundColor: '#59cbbd',
-        marginTop: 30,
-    },
-    btntext: {
-        color: '#fff',
-        fontWeight: 'bold'
-    }
+    
 });
 
 

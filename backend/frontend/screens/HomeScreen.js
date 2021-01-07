@@ -3,6 +3,7 @@ import React from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, KeyboardAvoidingView, ScrollView} from 'react-native';
 import { Button } from 'react-native-elements'
 import { Divider, Menu, Provider } from 'react-native-paper';
+import {BasicButton} from '@phomea/react-native-buttons';
 
 
 import { createAppContainer } from 'react-navigation';
@@ -34,16 +35,16 @@ export default function HomeScreen({ navigation }) {
       <Text style={styles.secondtitle}>Sign-in with your account : </Text>
       
       <TouchableOpacity style={styles.button}>
-        <Button style={styles.btntext} onPress={() => navigation.navigate('SignIn')}  title="Sign in"/>
+        <BasicButton style={styles.btntext} onPress={() => navigation.navigate('SignIn')}  title="Sign in"/>
       </TouchableOpacity>
       <Text style={styles.secondtitle}>Sign-up here if you are a Brand :</Text>
       <TouchableOpacity style={styles.button}>
-        <Button onPress={() => navigation.navigate('RegisterBrand')} style={styles.btntext} title="Sign up as a Brand" />
+        <BasicButton onPress={() => navigation.navigate('RegisterBrand')} style={styles.btntext} title="Sign up as a Brand" />
       </TouchableOpacity>
 
       <Text style={styles.secondtitle}>Sign-up here if you are an Influencer :</Text>
       <TouchableOpacity style={styles.button}>
-        <Button onPress={() => navigation.navigate('RegisterInfluencer')} style={styles.btntext} title="Sign up as an Influencer" />
+        <BasicButton onPress={() => navigation.navigate('RegisterInfluencer')} style={styles.btntext} title="Sign up as an Influencer" />
       </TouchableOpacity>
       </KeyboardAvoidingView>
       
@@ -56,8 +57,8 @@ export default function HomeScreen({ navigation }) {
 const styles = StyleSheet.create({
   regform: {
     alignSelf: 'stretch',
-    backgroundColor: '#65119C',
-    height: '95%', 
+    backgroundColor: '#9C27B0',
+    height: '95%',
 
   },
   menuh : {

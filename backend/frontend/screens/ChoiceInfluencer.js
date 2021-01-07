@@ -2,11 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, KeyboardAvoidingView, ScrollView, AsyncStorage} from 'react-native';
 import {Card, ListItem, Button, Icon} from 'react-native-elements'
 import {connect} from 'react-redux';
+import { Divider, Menu, Provider } from 'react-native-paper';
+
+import {BasicButton} from '@phomea/react-native-buttons';
 
 function ChoiceInfluencer({takeToken, navigation}) {
 
     const [returnCampaignDetailList, setReturnCampaignDetailList] = useState([])
     const [returnInfluenceur, setReturnInfluenceur] = useState([])
+    const [visible, setVisible] = React.useState(false);
+    const openMenu = () => setVisible(true);
+    const closeMenu = () => setVisible(false);
   
     useEffect(() => {
         async function fetchData() {
@@ -90,13 +96,13 @@ function ChoiceInfluencer({takeToken, navigation}) {
    <Text style={{marginBottom: 10}}>
    Followers: {returnInfluenceur.numberFollower}
    </Text>
-    <Button
+    <BasicButton
       icon={<Icon name='code' color='#ffffff' />}
       buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
       onPress={() => updateStatusAcc()}
 
       title='Accept' />
-        <Button
+        <BasicButton
       icon={<Icon name='code' color='#ffffff' />}
       buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
       onPress={() => updateStatusRef()}
@@ -178,8 +184,8 @@ function ChoiceInfluencer({takeToken, navigation}) {
 const styles = StyleSheet.create({
     regform: {
       alignSelf: 'stretch',
-      backgroundColor: '#65119C',
-      height: '95%', 
+      backgroundColor: '#9C27B0',
+      height: '95%',
   
     },
     menuh : {

@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView } from 'react-native';
-import {Button} from 'react-native-elements'
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView } from 'react-native';
+import {Button, Card} from 'react-native-elements'
 import {connect} from 'react-redux';
+import { Divider, Menu, Provider } from 'react-native-paper';
 
-function ProfileInfluencer({ takeToken }) {
+
+function ProfileInfluencer({ takeToken, navigation }) {
     
     const [influencerDetails, setInfluencerDetails] = useState([])
+    const [visible, setVisible] = React.useState(false);
+    const openMenu = () => setVisible(true);
+    const closeMenu = () => setVisible(false);
   
     useEffect(() => {
       async function fetchData() {
@@ -58,7 +63,7 @@ function ProfileInfluencer({ takeToken }) {
         const styles = StyleSheet.create({
             regform: {
                 alignSelf: 'stretch',
-                backgroundColor: '#59cbbd',
+                backgroundColor: '#9C27B0',
                 height: '95%',
             },
             header: {
@@ -94,7 +99,7 @@ function ProfileInfluencer({ takeToken }) {
             }
         });
         function mapStateToProps(state) {
-            return { token: state.token }
+            return { takeToken: state.token }
           }
           
           export default connect(
